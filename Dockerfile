@@ -15,5 +15,5 @@ COPY . .
 EXPOSE 3000
 
 # run the app
-CMD "npm start"
+CMD ["npm", "start"]
 # or npm start depending on your app
