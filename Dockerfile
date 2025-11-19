@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 3000
 
 # run the app
-CMD ["node", "server.js"]   # or npm start depending on your app
+CMD ["npm", "start"]  # or npm start depending on your app
