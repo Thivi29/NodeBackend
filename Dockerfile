@@ -1,15 +1,18 @@
-FROM node:16
+# NodeBackend/Dockerfile
+FROM node:16-alpine
 
-ENV HOME=/home/app
+# create app directory
+WORKDIR /usr/src/app
 
-COPY package.json $HOME/node_docker/
+# copy package.json and install first for layer caching
+COPY package*.json ./
+RUN npm ci --only=production
 
-WORKDIR $HOME/node_docker
+# copy app source
+COPY . .
 
-RUN npm install --silent --progress=false
-
-COPY . $HOME/node_docker
-
+# expose port used by app
 EXPOSE 3000
 
-CMD ["npm", "start"]
+# run the app
+CMD ["node", "server.js"]   # or npm start depending on your app
