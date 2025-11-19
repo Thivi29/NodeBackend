@@ -6,7 +6,7 @@ phases:
       - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 219677711575.dkr.ecr.us-east-1.amazonaws.com
       - REPOSITORY_URI="219677711575.dkr.ecr.us-east-1.amazonaws.com/backend"
-      - CONTAINER_NAME="backend-container"
+      - CONTAINER_NAME="backend"
       - IMAGE_TAG="latest"
 
   build:
